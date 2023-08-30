@@ -1,0 +1,102 @@
+An Application :
+- Front-End / UI (End User) - 5% (JS)
+- Back-End Layers - 90%
+	- Business Logic / API (Java)
+	- DB ()
+- Servers
+- Performance
+
+Application / Software Types:
+Desktops/Laptops - 
+- Desktop Application - Install. UFT, TestComplete, JS, VBS
+- Web Application - www.google.com, www.amazon.com
+		Selenium, Cypress, WebdriverIO, Playwrith, JAVA, JS, Python
+Mobile - Appium, TestComplet, Swift, Java, JS
+- Native Application - Install
+- Hybrid App
+- Web App / Web View
+Back-End / API / Web Services / Micro Services
+
+Testing Types:
+1. Functional Testing
+2. Non-Functional Testing
+
+1. Fuctional Testing - 
+- Unit Test 
+- Integration Test (SIT - System Integration Testing, UAT - User Acceptance Test)
+
+2. Non-Functional Testing -
+- UI (User Interface)
+- UX (User Experience)
+- Performance Testing
+	- Stress Test
+	- Volumn Test
+	- Load Test
+	- Spike Test
+- Network
+- Security
+- 508 Compilence
+
+Expectation == Actual
+
+xvy-345 - in Progress, in Development
+Dev - Code Unit (Method), IT (Integration Test)
+Build and Test - Dev Environment
+xvy-345 - In Testing, Ready To Testing (15 test cases)
+QA - Smoke, Regression, Integration, Sanity
+Test - QA
+UAT - BA/QA
+
+Testing Level:
+- White Box Testing - DEV (Unit, IT)
+- Grey Box Testing - 
+- Black Box Testing - QA (Smoke, Sanity, Regression)
+
+Environment: Internal , External/Live
+DEV /E1 - www.dev-geico.com
+QA / E2 - www.qa-geico.com
+UAT / TRNP - www.uat-geico.com
+STG - Production - www.stg-geico.com
+PROD/Production/Live www.geico.com
+Deployment
+Production Deployment = Release
+
+Agail:
+- Scrum (2-3 weeks)
+- Kanban (Priority based board)
+
+Agail Scrum Team: 7-10 pepole
+- Product Owner / Project Manager - Has a product to build, has some requirement. Product Backlog
+- BA/Scrum Master - Translate the requirement FRD, BRD
+- Developer 5
+- Tester 2
+
+PI Planning (3-4 months) - Come of with some EPICs to develop during the upcoming 3-4 months
+
+Agail Ceremonies:
+- Sprint 2-3 Weeks
+- Sprint Grooming - Grooming Sprint backlog
+- Sprint Planning - Story pointing (Estimated Time + Complexcity of the story), Fib - 1,2,3,5,8
+- Sprint Demo
+- Sprint Review
+- Sprint Retrospective - What went well, what can we make better, action items
+- DSU - Daily Stand Up (Status)
+	- What have you done yesterday?
+	- What you will be doing today?
+	- Is there anything blocking you to perfrm the given task?
+	- Parking Lot / S2 (Discussion)
+
+Process of Testing - 
+- Test Strategy (Based on Feasibilty Study)
+	- How we are going to test? (Functional and Non-Functional)
+	- What types of application (Web UI)
+	- Dedicated Environments for QA
+	- Tools required (Selenium)
+	- Permissions
+	- Resources
+	- Time Duration
+- POC (Proof of Concept)
+- Test Plan (Test Cases, Test Scenarios, Acceptence Criteria, Exit Criteria)
+- RTM (Requiremnent Tracability Matrix)
+- Test Execution and Results
+

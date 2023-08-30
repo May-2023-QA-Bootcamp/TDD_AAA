@@ -1,0 +1,98 @@
+Automation : 
+- A process / system that can run by itself
+- Run by itself
+- Without human intervention
+
+Benefits:
+- Run Longer time
+- Without/Less human intervention
+- Lesser time to execute
+- Reusability
+- Nightly run, morning monitoring
+
+When to do automation
+- Stable
+- Manually Passed
+- Repeated Testing
+
+XYZ-234
+In Amazon there will be a tab called 'Medical Care & Pharmacy'.
+Acceptance Criteria:
+1. Hoverover on this tab will display a list of Medical Provider
+2. Upon clickin a new page will appears in a new tab
+3. There will be sub-menu of 'One Medical', 'Pharmacy', 'Clinic' and 'FSA|HSA Store'
+
+Sprint 1, Sprint 2, Sprint 3
+N-1:
+Create Test Plan for Sprint 2
+Execute Sprint 1 Testing
+In-Sprint testing:
+Create and Execute Test Plan in the same sprint
+
+Automation Framework Types:
+1. TDD - Test Driven Development - Selenium, TestNG/JUnit
+2. BDD - Behaviour Driven Development - Cucumber, Selenium, TestNG/JUnit
+3. DDD - Data Driven Development - Apache POI, JDBC
+4. MDD - Modular Driven Development
+5. KDD - Keyword Driven Development
+6. Linear - Linear Scripting
+7. Hybrid - Combination of above
+
+Automation Design patterns: (3000)
+1. Creational (Page Object Model)
+2. Behabioural (Singleton)
+3. Structural (Builder)
+
+Build Tools: Maven, Gradle
+Goals:
+- clean - cleaning the exisitng compilation files
+- compile - parent.java > parent.class
+- install - if depencies are not available in .m2, then it will download into local
+- package - create a jar file of the whole project
+- test - test will run tests
+- verify - verify that required fileds are available to compile/deploy
+- deploy - create a copy of code and run it in the given environment
+
+- pom.xml - dependencies, dependency, plugins, build, dependency management
+
+Project
+- src
+	- main
+		- java
+			- base
+				- TestBase.java
+			- common
+				- CommonActions.java (click, sendkeys, gettext)
+				- CommonWaits.java
+			- pageobjects
+				- HomePage.java
+				- QuotePage.java
+				- DriverPage.java
+				- VehiclePage.java
+			- reports
+				- Logs
+				- Extentreport
+			- util
+				- ReadConfig.java
+				- Constant.java
+		- resources
+			- configuration.properties
+				url - www.geico.com
+				pageLoadTime - 30
+				user - username
+				pass - password
+	- test
+		- java
+			- auto.policy
+				- AutoPolicyTest.java
+			- home.policy
+				- HomePolicyTest.java
+			- renter.policy
+		- resources
+- pom.xml (Selenium - Java, TestNG)
+
+Handle Exception vs Unhandle Exception
+- During compile time when exception force to handle it - IOException
+- Will not handle exception during compile time - NullPointerExecption
+
+
