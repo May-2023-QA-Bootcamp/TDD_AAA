@@ -10,9 +10,10 @@ public class ReadConfigUnitTest {
 	@Test
 	public void getPropertiesTest() {
 		ReadConfig config = new ReadConfig();
-		String urlString = config.getValue(KeyConfig.url);
-		System.out.println(urlString);
-		
+		String urlString = config.getValue(KeyConfig.explicitWaitLoad);
+		System.out.println(urlString.getClass().getName());
+		Integer number = Integer.parseInt(urlString);
+		System.out.println(number);
 	}
 	
 }

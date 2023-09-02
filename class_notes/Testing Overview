@@ -52,16 +52,21 @@ Testing Level:
 - Grey Box Testing - 
 - Black Box Testing - QA (Smoke, Sanity, Regression)
 
+Smoke: 200 - All Major Functionalities - 2-5 mins
+Regression: 5000 - All available tests validating all functionalities - 1 hour
+Sanity: 70 - When regression is not possible we run sanity
+Re-Test: Bug fixed, only run that/those tests
+
 Environment: Internal , External/Live
-DEV /E1 - www.dev-geico.com
+DEV /E1 - www.dev-it-geico.com
 QA / E2 - www.qa-geico.com
 UAT / TRNP - www.uat-geico.com
 STG - Production - www.stg-geico.com
-PROD/Production/Live www.geico.com
-Deployment
-Production Deployment = Release
+PROD/Production/Live - www.geico.com
+Deployment (Go/No Go)
+Production Deployment = Release 5-30mins
 
-Agail:
+Agile:
 - Scrum (2-3 weeks)
 - Kanban (Priority based board)
 

@@ -1,0 +1,21 @@
+Wrapper class:
+Primitive data type - int, char, boolean, byte, short, long, double, float
+Wrapper Class - Integer, Character, Boolean, Byte, Short, Long, Double, FLoat
+
+TestNG framework annotations heirerchy
+@BeforeSuite
+@BeforeTest
+@BeforeClass
+@BeforeMethod
+@Test
+@AfterMethod
+@AfterClass
+@AfterTest
+@AfterSuite
+
+Static Import = import static class.reference.objects;
+You can import all of the static objects of a class or interface without the class/interface reference
+
+Interview Ques:
+- Converting String to integer
+- Difference between driver.quit() and driver.close()
