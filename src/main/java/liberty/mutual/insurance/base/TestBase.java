@@ -8,6 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import liberty.mutual.insurance.constants.KeyConfig;
@@ -29,7 +30,7 @@ public class TestBase {
 	
 	@Parameters(BROWSER)
 	@BeforeMethod
-	public void setUpDriver(String browserName) {
+	public void setUpDriver(@Optional(CHROME) String browserName) {
 		driver = initializingBrowser(browserName);
 		int pageLoadTime = Integer.parseInt(config.getValue(KeyConfig.pageLoadTime));
 		int implicitWaitTime = Integer.parseInt(config.getValue(KeyConfig.impliciteWaitLoad));
