@@ -2,10 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>LibertyMutual</groupId>
-	<artifactId>liberty.mutual.insurance</artifactId>
+	<groupId>NorthEastAAA</groupId>
+	<artifactId>North.East.AAA</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Liberty Mutual Insurance</name>
+	<name>North East AAA</name>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -52,6 +52,12 @@
 					<source>11</source>
 					<target>11</target>
 				</configuration>
+			</plugin>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.1.2</version>
 			</plugin>
 
 		</plugins>

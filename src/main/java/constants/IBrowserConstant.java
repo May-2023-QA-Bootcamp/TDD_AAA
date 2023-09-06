@@ -1,4 +1,4 @@
-package liberty.mutual.insurance.constants;
+package constants;
 
 public interface IBrowserConstant{
 

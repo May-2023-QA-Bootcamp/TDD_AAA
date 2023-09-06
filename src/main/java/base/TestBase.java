@@ -1,4 +1,4 @@
-package liberty.mutual.insurance.base;
+package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,18 +8,24 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+
+import constants.KeyConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import liberty.mutual.insurance.constants.KeyConfig;
-import liberty.mutual.insurance.pages.HomePage;
-import liberty.mutual.insurance.utils.ReadConfig;
-import static liberty.mutual.insurance.constants.IBrowserConstant.*;
+import pages.HomePage;
+import utils.ReadConfig;
+
+import static constants.IBrowserConstant.*;
+
 import java.time.Duration;
 
 public class TestBase {
 
 	public static WebDriver driver;
 	ReadConfig config;
+	
+	// Object Pages
 	protected HomePage homePage;
 	
 	@BeforeSuite
@@ -27,10 +33,13 @@ public class TestBase {
 		config = new ReadConfig();
 	}
 	
+	// browser parameter will come from testng suite or runtime
+	// @Optional("chrome") will take care in case we miss browser param value
 	@Parameters(BROWSER)
 	@BeforeMethod
-	public void setUpDriver(String browserName) {
+	public void setUpDriver(@Optional(FIREFOX) String browserName) {
 		driver = initializingBrowser(browserName);
+		driver.manage().window().maximize();
 		int pageLoadTime = Integer.parseInt(config.getValue(KeyConfig.pageLoadTime));
 		int implicitWaitTime = Integer.parseInt(config.getValue(KeyConfig.impliciteWaitLoad));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTime));
@@ -65,6 +74,6 @@ public class TestBase {
 	
 	@AfterMethod
 	public void tearUp() {
-		driver.quit();
+		//driver.quit();
 	}
 }
