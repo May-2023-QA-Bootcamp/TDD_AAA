@@ -1,0 +1,10 @@
+N-1 Testing/Automation: If this is Sprint 2, than in previous sprint 1 we created test plan.
+	In this current sprint, we are going to create test plan for the next sprint and execute current sprint
+	test plan manually first and automation after which has been created in previous sprint
+In-Sprint Testing/Automation: Same sprint test plan will be created and tested manually
+	and create automation scripts as well.
+	
+Hard Assert: Assert.assertEqual(actual,expected);
+	- Hard assert will fail the tests and exit out from that steps
+Soft Assert: 
+	- Soft assert will continue testing if it fails and go execute next other steps as well

@@ -1,4 +1,4 @@
-package liberty.mutual.insurance.reports;
+package reports;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

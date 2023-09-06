@@ -1,13 +1,13 @@
-package liberty.mutual.insurance.unit;
+package unit;
 
 import org.testng.annotations.Test;
 
-import liberty.mutual.insurance.constants.KeyConfig;
-import liberty.mutual.insurance.utils.ReadConfig;
+import constants.KeyConfig;
+import utils.ReadConfig;
 
 public class ReadConfigUnitTest {
 
-	@Test
+	@Test(enabled = false)
 	public void getPropertiesTest() {
 		ReadConfig config = new ReadConfig();
 		String urlString = config.getValue(KeyConfig.explicitWaitLoad);

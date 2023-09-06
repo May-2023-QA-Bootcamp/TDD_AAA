@@ -1,9 +1,9 @@
-package liberty.mutual.insurance.utils;
+package utils;
 
 import java.io.IOException;
 import java.util.Properties;
 
-import liberty.mutual.insurance.constants.KeyConfig;
+import constants.KeyConfig;
 
 public class ReadConfig {
 
