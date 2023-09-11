@@ -2,7 +2,8 @@ package constants;
 
 public enum Attribute {
 
-	MAX_LENGTH("maxlength");
+	MAX_LENGTH("maxlength"),
+	INNER_HTML("innerHTML");
 	
 	String attribute;
 	
