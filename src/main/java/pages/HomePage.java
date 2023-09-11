@@ -15,30 +15,35 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy()
+	@FindBy(xpath = "//div[@class='zipcodeTitle']/div[contains(@class,'b6')]")
 	WebElement titleText;
-	@FindBy()
+	@FindBy(xpath = "//div[@class='zipcodeMid']/div[contains(@class,'dkg6')]")
 	WebElement subTitleText;
-	@FindBy()
-	WebElement footerText;
-	@FindBy()
+	@FindBy(xpath = "(//div[@class='zipcodeBottomText']/span)[1]")
+	WebElement footerText1;
+	@FindBy(xpath = "(//div[@class='zipcodeBottomText']/span)[2]")
+	WebElement footerText2;
+	@FindBy(id = "zipcodeInput")
 	WebElement zipCodeField;
-	@FindBy()
+	@FindBy(id = "zipcodeSubmit")
 	WebElement submitBtn;
-	@FindBy()
+	@FindBy(xpath = "//div[@class='zipcodeMid']/descendant::div[contains(@class,'r6')]")
 	WebElement errorMsgText;
-	@FindBy()
-	WebElement homePageTitleText;
 
 	public void verifyTitleText(String expectedString) {
-		verifyText(titleText, expectedString);
+		//verifyText(titleText, expectedString);
+		verifyAttribute(titleText, expectedString, Attribute.INNER_HTML);
 	}
 	
 	public void verifySubTitleText(String expectedString) {
-		verifyText(subTitleText, expectedString);
+		//verifyText(subTitleText, expectedString);
+		verifyAttribute(subTitleText, expectedString, Attribute.INNER_HTML);
 	}
 	
 	public void verifyFooterText(String expectedString) {
+		//verifyText(footerText, expectedString);
+		String footerText = getAttributeValue(footerText1, Attribute.INNER_HTML) + " "+
+				getAttributeValue(footerText2, Attribute.INNER_HTML);
 		verifyText(footerText, expectedString);
 	}
 	
@@ -47,7 +52,8 @@ public class HomePage {
 	}
 	
 	public void verifyErrorMsgText(String expectedString) {
-		verifyText(errorMsgText, expectedString);
+		//verifyText(errorMsgText, expectedString);
+		verifyAttribute(errorMsgText, expectedString, Attribute.INNER_HTML);
 	}
 	
 	public void inputZipCodeField(String zipCode) {
@@ -56,5 +62,13 @@ public class HomePage {
 	
 	public void verifyLength(String expected) {
 		verifyAttribute(zipCodeField, expected, Attribute.MAX_LENGTH);
+	}
+	
+	public void clearZipCodeField() {
+		clear(zipCodeField);
+	}
+	
+	public void verifyHomePageTitleText(WebDriver driver,String expectedTitle) {
+		verifyTitle(driver, expectedTitle);
 	}
 }
