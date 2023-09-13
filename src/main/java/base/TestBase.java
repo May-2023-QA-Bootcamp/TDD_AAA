@@ -6,30 +6,31 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-
 import constants.KeyConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 import utils.ReadConfig;
-
 import static constants.IBrowserConstant.*;
-
 import java.time.Duration;
 
 public class TestBase {
 
-	public static WebDriver driver;
+	WebDriver driver;
 	ReadConfig config;
 	
 	// Object Pages
 	protected HomePage homePage;
 	
-	@BeforeSuite
-	public void beforeSuiteSetUp() {
+	public WebDriver getDriver() {
+		return driver;
+	}
+	
+	@BeforeClass
+	public void beforeClassSetUp() {
 		config = new ReadConfig();
 	}
 	
@@ -74,6 +75,7 @@ public class TestBase {
 	
 	@AfterMethod
 	public void tearUp() {
-		driver.quit();
+		//driver.quit();
 	}
+	
 }
