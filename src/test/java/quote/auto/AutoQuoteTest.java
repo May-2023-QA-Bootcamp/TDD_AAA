@@ -23,6 +23,8 @@ public class AutoQuoteTest extends TestBase{
 		homePage.clearZipCodeField();
 		homePage.inputZipCodeField("11418");
 		homePage.clickSubmitBtn();
-		homePage.verifyHomePageTitleText(driver,"Home | AAA Northeast");
+		homePage.verifyHomePageTitleText(getDriver(),"Home | AAA Northeast");
+		homePage.validateMenuList();
+		homePage.hoverOnMembership(getDriver());
 	}
 }
