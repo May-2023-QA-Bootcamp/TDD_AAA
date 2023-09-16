@@ -7,15 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 import reports.Loggers;
 
+/**
+ * @author mdnas
+ * This class will help to initialize an object of the given file
+ * and it returns a list of lines in the given file
+ */
+
 public class ReadFile {
 
+	/**
+	 * @param String fileName basically the locator of the file
+	 * @param List<String>list will hold all the lines in the file
+	 */
+	
 	private String fileName;
 	private List<String> list;
 	BufferedReader reader;
 
 	public ReadFile(String fileName) {
 		this.fileName = fileName;
-		reader = readerObj();
+		reader = readerFile();
 	}
 
 	public String getFileName() {
@@ -26,7 +37,7 @@ public class ReadFile {
 		return list;
 	}
 	
-	private BufferedReader readerObj() {
+	private BufferedReader readerFile() {
 		try {
 			reader = new BufferedReader(new FileReader(getFileName()));
 			generateList(reader);
@@ -51,7 +62,7 @@ public class ReadFile {
 	}
 	
 	public int getListSize() {
-		return getList().size();
+		return list.size();
 	}
 	
 	public void closeResource() {

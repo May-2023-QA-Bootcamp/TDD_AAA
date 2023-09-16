@@ -4,10 +4,10 @@ Wrapper Class - Integer, Character, Boolean, Byte, Short, Long, Double, FLoat
 
 TestNG framework annotations heirerchy
 @BeforeSuite
-@BeforeTest
+@BeforeTest - Type of test
 @BeforeClass
 @BeforeMethod
-@Test
+@Test - unit / integration test
 @AfterMethod
 @AfterClass
 @AfterTest

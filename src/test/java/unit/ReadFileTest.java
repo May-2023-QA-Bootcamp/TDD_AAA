@@ -16,14 +16,14 @@ public class ReadFileTest {
 
 	@Test
 	public void readTxtFileUsingBufferedReader() throws IOException {
-		File fileName = new File("src/main/resources/menu.txt");
+		File fileName = new File("src/main/resources/menu/menuList.txt");
 		System.out.println(fileName.exists());
 		System.out.println(fileName.canExecute());
 		System.out.println(fileName.canRead());
 		System.out.println(fileName.canWrite());
 		
 		@SuppressWarnings("resource")
-		BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/menu.txt"));
+		BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/menu/menuList.txt"));
 		String lineString;
 		List<String> list = new ArrayList<>();
 		while((lineString = reader.readLine()) != null) {
@@ -40,6 +40,17 @@ public class ReadFileTest {
 	public void readFileTest() {
 		ReadFile readFile = new ReadFile(IFileLocator.MENU);
 		System.out.println(readFile.getList());
+	}
+	
+	@Test
+	public void readFileReader() throws IOException {
+		File fileName = new File("src/main/resources/menu/membershipList.txt");
+		@SuppressWarnings("resource")
+		FileReader reader = new FileReader(fileName);
+		int charInt = 0;
+		while((charInt = reader.read()) != -1) {
+			System.out.print((char)charInt);
+		}
 	}
 	
 	//Apache POI you will able read PDF, EXCEL, DOC

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="Test">
+  <parameter name="title" 			 value="Welcome to AAA Northeast"></parameter>
+  <parameter name="invalidZip1" 	 value="abcd"></parameter>
+  <parameter name="zipLen" 			 value="5"></parameter>
+  <parameter name="invalidZip2" 	 value="1a2b3"></parameter>
+  <parameter name="zipCode" 		 value="11418"></parameter>
+  <parameter name="homeTitle" 		 value="Home | AAA Northeast"></parameter>
+  <parameter name="membershipFooter" value="Join:(800) JOIN-AAA (800-564-6222)"></parameter>
+    <classes>
+      <class name="quote.auto.AutoQuoteParameterizedTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -75,7 +75,7 @@ public class TestBase {
 	
 	@AfterMethod
 	public void tearUp() {
-		//driver.quit();
+		driver.quit();
 	}
 	
 }

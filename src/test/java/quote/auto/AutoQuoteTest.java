@@ -26,5 +26,8 @@ public class AutoQuoteTest extends TestBase{
 		homePage.verifyHomePageTitleText(getDriver(),"Home | AAA Northeast");
 		homePage.validateMenuList();
 		homePage.hoverOnMembership(getDriver());
+		homePage.readSubMenuOfMemebrship();
+		homePage.verifyMembershipFooterText("Join:(800) JOIN-AAA (800-564-6222)");
+		homePage.clickHomeInsurance(getDriver());
 	}
 }
