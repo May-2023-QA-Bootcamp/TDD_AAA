@@ -88,6 +88,19 @@ public class CommonActions {
 		}
 	}
 	
+	public static void hoverOverTo(WebDriver driver, WebElement src_element, WebElement target_element) {
+		try {
+			Actions actions = new Actions(driver);
+			actions.moveToElement(src_element).click(target_element).build().perform();
+			Loggers.log("Hovering on ---> " + src_element);
+			Loggers.log("Clicking on ---> " + target_element);
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			Loggers.log(src_element +" || " + target_element  + " ---> Not Found \n" + e.getMessage());
+			Assert.fail();
+		}
+	}
+	
 	public static void sleep(long sec) {
 		try {
 			Thread.sleep(sec * 1000);

@@ -33,7 +33,13 @@ public class HomePage {
 	WebElement errorMsgText;
 	@FindBy(xpath = "//div[contains(@class,'navbar-collapse')]/ul[contains(@class,'aaa-header-tabs')]/li")
 	List<WebElement> menuList;
-
+	@FindBy(xpath = "(//div[contains(@class,'navbar-collapse')]/ul[contains(@class,'aaa-header-tabs')]/li)[2]/ul/li/span")
+	List<WebElement> membershipSubMenuList;
+	@FindBy(xpath = "//li[@id='nav-insurance-col2']/ul/li/a[text()='Home & Condo Insurance']")
+	WebElement homeNCondoBtn;
+	@FindBy(xpath = "//li[@id='nav-membership-parent']/child::ul/child::div")
+	WebElement membershipFooterText;
+	
 	public void verifyTitleText(String expectedString) {
 		//verifyText(titleText, expectedString);
 		verifyAttribute(titleText, expectedString, Attribute.INNER_HTML);
@@ -92,11 +98,31 @@ public class HomePage {
 	}
 	
 	public void hoverOnMembership(WebDriver driver) {
-		sleep(2);
+		sleep(1);
 		hoverOverOnly(driver, menuList.get(1));
 	}
 	
 	public void readSubMenuOfMemebrship() {
-		//(//div[contains(@class,'navbar-collapse')]/ul[contains(@class,'aaa-header-tabs')]/li)[2]/ul/li/span
+		ReadFile file = new ReadFile(IFileLocator.MEMBERSHIP_CATEGORY);
+		List<String> expectedMembershipCategoryList = file.getList();
+		List<String> actualMembershipCategoryListText = new ArrayList<>();
+		sleep(1);
+		for(WebElement e: membershipSubMenuList) {
+			actualMembershipCategoryListText.add(e.getText());
+		}
+		verifyText(expectedMembershipCategoryList, actualMembershipCategoryListText);
+		file.closeResource();
+	}
+	
+	public void verifyMembershipFooterText(String expected) {
+		verifyText(membershipFooterText, expected);
+	}
+	
+	public void clickHomeInsurance(WebDriver driver) {
+		sleep(1);
+		hoverOverOnly(driver, menuList.get(3));
+		sleep(1);
+		hoverOverTo(driver, menuList.get(3), homeNCondoBtn);
+		sleep(1);
 	}
 }

@@ -1,0 +1,9 @@
+Polymorphism:
+- Method Overloading
+	When in the same class there are more than one method has same name with different parameter type.
+	Compile Time Polymorphism. Static Polymorphism
+- Method Overriding
+	When child class inherit a method from parent class, child class can override the method body of parent class
+	Runtime Polymorphism. Dynamic Polymorphism
+	
+Interface: 
