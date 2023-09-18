@@ -1,0 +1,15 @@
+Tell me about yourself:
+- Introduction
+- Current Product/Project - UI / API / Mobile Application
+- Your project SDLC
+- Defect management tools - JIRA, Rally
+- Test Management tools - XRay, TestRail, Zypher
+- Your framework (TDD -> Selenium-Java, TestNG -> Page Object Model)
+- Type of Tests (Regression, Smoke, Sanity)
+- Reports
+- Release - every alternative sprint
+- We maintain our framework in source/version control tool such Git, Github
+- CI/CD - (Jenkins, Gitlab, Bitbucket, Azure devops) Nightly run - Morning report consolidation
+- Different Applications, Different Framework
+
+TestNG Listeners - Listeners are TestNG annotations that literally “listen” to the events in a script and modify TestNG behavior accordingly.

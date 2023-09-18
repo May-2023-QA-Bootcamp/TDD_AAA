@@ -5,28 +5,48 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+import common.CommonActions;
 import constants.KeyConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
+import reports.ExtentManager;
+import reports.ExtentTestManager;
 import utils.ReadConfig;
 import static constants.IBrowserConstant.*;
+
+import java.lang.reflect.Method;
 import java.time.Duration;
 
 public class TestBase {
 
 	WebDriver driver;
 	ReadConfig config;
+	ExtentReports report;
+	ExtentTest extentTest;
 	
 	// Object Pages
 	protected HomePage homePage;
 	
 	public WebDriver getDriver() {
 		return driver;
+	}
+	
+	@BeforeSuite
+	public void initialReporting() {
+		report = ExtentManager.initialReports();
 	}
 	
 	@BeforeClass
@@ -73,9 +93,35 @@ public class TestBase {
 		homePage = new HomePage(driver);
 	}
 	
+	@BeforeMethod
+	public void initialTest(Method method) {
+		extentTest = ExtentTestManager.createTest(report, method.getName());
+		extentTest.assignCategory(method.getDeclaringClass().getName());
+	}
+	
 	@AfterMethod
 	public void tearUp() {
 		driver.quit();
 	}
 	
+	@AfterMethod
+	public void afterEachTest(Method method, ITestResult result) {
+		for(String group: result.getMethod().getGroups()) {
+			extentTest.assignCategory(group);
+		}
+		
+		if(result.getStatus() == ITestResult.SUCCESS) {
+			extentTest.log(Status.PASS, "Test PASSED");
+		}else if(result.getStatus() == ITestResult.FAILURE) {
+			extentTest.addScreenCaptureFromPath(CommonActions.getSreenShot(method.getName(), driver));
+			extentTest.log(Status.FAIL, "Test FAILED");
+		}else if(result.getStatus() == ITestResult.SKIP) {
+			extentTest.log(Status.SKIP, "Test SKIPPED");
+		}
+	}
+	
+	@AfterSuite
+	public void publishReport() {
+		report.flush();
+	}
 }

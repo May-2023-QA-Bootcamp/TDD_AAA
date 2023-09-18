@@ -2,16 +2,16 @@ package testng;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import reports.Loggers;
 
-public class TestNGAttributesTest {
+public class TestNGAttributesTest{
 
 	@Test(enabled = true, groups = {"auto","smoke","regression"} , dependsOnMethods = "test2", ignoreMissingDependencies = true)
 	public void test1() {
 		//HomePage.validateTitle()
 		//HomePage.validateSubTitle()
 		Loggers.log("This is a Test 1");
+		Assert.fail();
 	}
 	
 	@Test(enabled = false, groups = {"smoke","regression"})
@@ -24,7 +24,8 @@ public class TestNGAttributesTest {
 		Loggers.log("This is a Test 3");
 	}
 	
-	@Test(enabled = true, groups = "smoke")
+	// This retryAnalizer attribute is for ref purpose as we moved to Suite Listeners 
+	@Test(enabled = true, groups = "smoke", retryAnalyzer = retry.RetryClass.class)
 	public void test4() {
 		Loggers.log("This is a Test 4");
 		Assert.fail();

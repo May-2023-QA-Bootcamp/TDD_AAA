@@ -67,7 +67,7 @@ public class HomePage {
 	}
 	
 	public void inputZipCodeField(String zipCode) {
-		input(zipCodeField, zipCode);
+		input(null, zipCode);
 	}
 	
 	public void verifyLength(String expected) {
