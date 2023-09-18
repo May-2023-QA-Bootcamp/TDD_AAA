@@ -31,7 +31,7 @@ Create and Execute Test Plan in the same sprint
 
 Automation Framework Types:
 1. TDD - Test Driven Development - Selenium, TestNG/JUnit
-2. BDD - Behaviour Driven Development - Cucumber, Selenium, TestNG/JUnit
+2. BDD - Behavior Driven Development - Cucumber, Selenium, TestNG/JUnit
 3. DDD - Data Driven Development - Apache POI, JDBC
 4. MDD - Modular Driven Development
 5. KDD - Keyword Driven Development

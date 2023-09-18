@@ -1,11 +1,12 @@
 package quote.auto;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import base.TestBase;
 
 public class AutoQuoteTest extends TestBase{
 
-	@Test
+	@Test(groups = {"regression", "auto", "smoke"})
 	public void getAutoQuoteTest() {
 		homePage.verifyTitleText("Welcome to AAA Northeast");
 		homePage.verifySubTitleText("To ensure you receive the best service possible,<br>please enter your zip code below:");
@@ -29,5 +30,14 @@ public class AutoQuoteTest extends TestBase{
 		homePage.readSubMenuOfMemebrship();
 		homePage.verifyMembershipFooterText("Join:(800) JOIN-AAA (800-564-6222)");
 		homePage.clickHomeInsurance(getDriver());
+	}
+	
+	@Test(groups = {"regression", "auto"})
+	public void submitBtnAutoTest() {
+		homePage.verifyTitleText("Welcome to AAA Northeast");
+		homePage.verifySubTitleText("To ensure you receive the best service possible,<br>please enter your zip code below:");
+		homePage.verifyFooterText("AAA Northeast&nbsp; serves members in CT, MA, NH, NJ, NY &amp; RI.");
+		homePage.clickSubmitBtn();
+		Assert.fail();
 	}
 }
