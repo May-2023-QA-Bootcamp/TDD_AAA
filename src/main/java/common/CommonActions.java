@@ -2,7 +2,8 @@ package common;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Instant;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -123,7 +124,12 @@ public class CommonActions {
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
-		File targetFile = new File(path + "/error_" + testName + "_" + Instant.now() + ".png");
+		
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy_hh.mm.ss");
+		String formattedDate = dateFormat.format(date);
+		
+		File targetFile = new File(path + "/error_" + testName + "_" + formattedDate + ".png");
 		try {
 			File srcFile = ss.getScreenshotAs(OutputType.FILE);
 			Files.copy(srcFile, targetFile);
