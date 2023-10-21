@@ -1,0 +1,28 @@
+CI/CD | Pilepine | - Continues Integration / Continueos Deployment / Delivery
+
+Environment:
+DEV
+QA
+UAT
+STG
+PROD
+
+2-3 weeks
+
+Propose
+- Reduce time frame to deploy
+- Existing functionality should work as expected
+- No dependencies on QA or UAT
+
+Jenkins, Azure DevOps, Gitlab, Github Action, Concourse, Bamboo, Anthill Pro
+
+New Changes
+
+DEV code === QA DB Integration === Regression === QA
+QA code === UAT DB Integration === Regression === UAT
+UAT code === STG DB Integration === Regression === STG
+STG code === PROD DB === Network Integration === Security Integration === PROD
+
+5pm till 6am
+
+goal example - mvn test -Dsuite=testng_attr_suite.xml
