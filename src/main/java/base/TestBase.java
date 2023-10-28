@@ -1,9 +1,11 @@
 package base;
 
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -19,16 +21,24 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import common.CommonActions;
+import constants.BS_Key;
+import constants.BS_Mode;
 import constants.KeyConfig;
+import constants.Profile;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 import reports.ExtentManager;
 import reports.ExtentTestManager;
 import utils.ReadConfig;
 import static constants.IBrowserConstant.*;
+import static constants.IBrowserStack.*;
+import static constants.BS_Key.*;
 
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 
 public class TestBase {
 
@@ -51,7 +61,7 @@ public class TestBase {
 	
 	@BeforeClass
 	public void beforeClassSetUp() {
-		config = new ReadConfig();
+		config = new ReadConfig(Profile.GENERAL);
 	}
 	
 	// browser parameter will come from testng suite or runtime
@@ -83,6 +93,8 @@ public class TestBase {
 		case SAFARI:
 			WebDriverManager.safaridriver().setup();
 			return new SafariDriver();
+		case REMOTE:
+			return getRemoteDriver();
 		default:
 			WebDriverManager.chromedriver().setup();
 			return new ChromeDriver();
@@ -118,6 +130,40 @@ public class TestBase {
 		}else if(result.getStatus() == ITestResult.SKIP) {
 			extentTest.log(Status.SKIP, "Test SKIPPED");
 		}
+	}
+	
+	public WebDriver getRemoteDriver() {
+		ReadConfig bsConfig = new ReadConfig(Profile.BROWSERSTACK);
+		
+		MutableCapabilities capabilities = new MutableCapabilities();
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		
+		if(bsConfig.getValue(BS_MODE).equalsIgnoreCase(BS_Mode.BROWSER.toString())) 
+		{
+			browserstackOptions.put(BS_OS, bsConfig.getValue(BS_OS_NAME));
+			browserstackOptions.put(BS_OS_VER, bsConfig.getValue(BS_OS_VERSION));
+		}
+		else if(bsConfig.getValue(BS_MODE).equalsIgnoreCase(BS_Mode.DEVICE.toString())) 
+		{
+			browserstackOptions.put(BS_DEVICE_NAME, bsConfig.getValue(BS_DEVICE));
+			browserstackOptions.put(BS_DEVICE_ORIENT, bsConfig.getValue(BS_DEVICE_ORIENTETION));
+		}
+		
+		capabilities.setCapability(BS_BROWSER_NAME, bsConfig.getValue(BS_BROWSER));
+		capabilities.setCapability(BS_BROWSER_VER, bsConfig.getValue(BS_Key.BS_BROWSER_VERSION));
+		capabilities.setCapability(BS_OPT, browserstackOptions);
+		
+		String urlString = "https://" + bsConfig.getValue(BS_USER) + ":" + bsConfig.getValue(BS_ACCESS) + 
+				bsConfig.getValue(BS_URL);
+		
+		URL url = null;
+		try {
+			url = new URL(urlString);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+        return new RemoteWebDriver(url, capabilities);
 	}
 	
 	@AfterSuite
