@@ -7,4 +7,5 @@ public interface IBrowserConstant{
 	String FIREFOX = "firefox";
 	String SAFARI = "safari";
 	String EDGE = "edge";
+	String REMOTE = "remote";
 }
