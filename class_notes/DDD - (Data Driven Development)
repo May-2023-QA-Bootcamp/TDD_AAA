@@ -1,0 +1,12 @@
+DDD - (Data Driven Development)
+Principles:
+- If different set of data will cause different result for the same test, use DDD
+- More than one set of test data
+- Do not hardcode data
+Need:
+- Data Source. Spreadsheet, DB
+- Utility Class
+	- Create Connection
+	- Read / Write
+	- Data Structure can be reuse
+- @DataProvider (Junit / TestNG). method should return Object[][] or iterator (list/set)
