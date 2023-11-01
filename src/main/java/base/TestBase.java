@@ -43,7 +43,7 @@ import java.util.HashMap;
 public class TestBase {
 
 	WebDriver driver;
-	ReadConfig config;
+	protected ReadConfig config;
 	ExtentReports report;
 	ExtentTest extentTest;
 	

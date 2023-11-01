@@ -1,8 +1,9 @@
 package constants;
 
+// Constant should be all Capital letters, this ENUM for tutorial purpose only
 public enum KeyConfig {
 	
-	url, pageLoadTime, impliciteWaitLoad, explicitWaitLoad;
+	url, pageLoadTime, impliciteWaitLoad, explicitWaitLoad, excelPath, excelSheet;
 
 //	url(1, ""), pageLoadTime(2, ""), impliciteWaitLoad(3, ""), explicitWaitLoad(4, "");
 //	

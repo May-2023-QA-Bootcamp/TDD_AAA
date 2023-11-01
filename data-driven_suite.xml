@@ -4,9 +4,10 @@
 	<parameter name="browser" value="chrome" />
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="quote.auto.AutoTestDataDriven_HardCoded">
+			<!-- class name="quote.auto.AutoTestDataDriven_HardCoded"-->
+			<class name="quote.auto.AutoQuoteDataDrivenTest">
 				<methods>
-					<include name="getQuoteTestPOJO_DTO_iterator"></include>
+					<include name="getQuoteTestPOJO_DTO"></include>
 				</methods>
 			</class>
 		</classes>
